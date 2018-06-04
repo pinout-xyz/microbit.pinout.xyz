@@ -1,13 +1,14 @@
 ---
 name: micro:bit GPIO pinout
 types:
-  Power
-  Ground
-  Analog
-  Hook
-  GPIO
-  I2C
-  SPI
+  Power:
+  Ground:
+  Analog:
+  Hook:
+  GPIO:
+  I2C:
+  SPI:
+  Button:
 pins:
   0:
     id: 
@@ -33,14 +34,17 @@ pins:
     id:
     name: 3V
     type: Power
+    info: Max 90mA*
   6:
     id:
     name: 3V
     type: Power/Hook
+    info: Max 90mA*
   7:
     id:
     name: 3V
     type: Power
+    info: Max 90mA*
   8:
     id: P16
     name:
@@ -63,7 +67,7 @@ pins:
     type: GPIO/Analog/Hook
   13:
     id: P12
-    name: Reserved
+    info: Accessibility*
     type: GPIO/Reserved
   14:
     id: P11
@@ -71,11 +75,11 @@ pins:
     type: GPIO/Button
   15:
     id: P10
-    name: LED Col 3
+    info: LED Col 3
     type: GPIO/Analog
   16:
     id: P9
-    name: LED Col 7
+    info: LED Col 7
     type: GPIO
   17:
     id: P8
@@ -87,11 +91,11 @@ pins:
     type: GPIO/Analog/Hook
   19:
     id: P7
-    name: LED Col 8
+    info: LED Col 8
     type: GPIO/LED
   20:
     id: P6
-    name: LED Col 9
+    info: LED Col 9
     type: GPIO/LED
   21:
     id: P5
@@ -99,7 +103,7 @@ pins:
     type: GPIO/Button
   22:
     id: P4
-    name: LED Col 2
+    info: LED Col 2
     type: GPIO/Analog
   23:
     id: P0
@@ -107,6 +111,6 @@ pins:
     type: GPIO/Analog/Hook
   24:
     id: P3
-    name: LED Col 1
+    info: LED Col 1
     type: GPIO/Analog
 

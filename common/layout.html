@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>micro:bit GPIO pinout</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style type="text/css">
+
+            body {
+                font-family:sans-serif;
+            }
+
+            header {
+                font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+            }
+
+            header h1 {
+                font-size:30px;
+                margin:0;
+                padding:0;
+            }
+
+            header h2 {
+                margin:0;
+                padding:0;
+                font-size:22px;
+            }
+        
+            .pinout {
+                background:#073642;
+                width:150px;
+                position: relative;
+                height:694px;
+                border-top-right-radius:30px;
+                border-bottom-right-radius:30px;
+                float:left;
+            }
+
+            aside {
+                width:330px;
+                float:left;
+            }
+
+            article {
+                background:#EBE6D3;
+                margin-left:320px;
+                padding:20px;
+            }
+
+            .pinout ul {
+                margin:0;
+                padding:0;
+                list-style:none;
+                position:absolute;
+                left:150px;
+                top:5px;
+            }
+
+            .pinout li {
+                margin:2px 0;
+                padding:0;
+                list-style:none;
+            }
+
+            .pinout .type-hook {
+                margin:6px 0px;
+            }
+
+            .pinout a {
+                display:block;
+                padding-left:10px;
+                position:relative;
+                height:20px;
+                width:160px;
+                text-decoration:none;
+                color:#333333;
+            }
+
+            .pinout span, .pinout strong, .pinout small {
+                height:20px;
+                line-height:20px;
+                font-size:14px;
+                font-weight:normal;
+            }
+
+            .pinout small {
+                font-size:10px;
+                float:right;
+                margin-right:10px;
+            }
+
+            .pinout span {
+                position:absolute;
+                left:-70px;
+            }
+
+            .pinout .type-hook a {
+                height:38px;
+            }
+
+            .pinout .type-hook a span, .pinout .type-hook a strong {
+                line-height:38px;
+            }
+
+            .pinout a:before {
+                content:'';
+                display:block;
+                width:70px;
+                height:20px;
+                position:absolute;
+                left:-80px;
+                top:0;
+                background: #D4AF37;
+                border-right:10px solid rgba(255, 255, 255, 0.5);
+            }
+
+            .pinout .type-power a:before {
+                border-right-color: #DC322F;
+            }
+
+            .pinout .type-i2c a:before {
+                border-right-color: #6c71c4;
+            }
+
+            .pinout .type-spi a:before {
+                border-right-color: #D33682;
+            }
+
+            .pinout .type-button a:before {
+                border-right-color: #859900;
+            }
+
+            .pinout .type-analog a:before {
+                border-right-color:#B58900;
+            }
+
+            .pinout .type-ground a:before {
+                border-right-color: rgba(255, 255, 255, 0.5);
+            }
+
+            .pinout .type-hook a:before {
+                height:38px;
+                width:100px;
+                left:-110px;
+                top:0;
+                border-top-left-radius:19px;
+                border-bottom-left-radius:19px;
+            }
+
+            .pinout .type-hook small {
+                line-height: 38px;
+            }
+
+            .pinout .type-hook a:after {
+                content: '';
+                background: #FFFFFF;
+                display: block;
+                position: absolute;
+                left: -106px;
+                top: 4px;
+                width: 30px;
+                height: 30px;
+                border-radius: 15px;
+            }
+        
+            .pinout a:hover,
+            .pinout a:hover:before {
+                background:#278da7;
+            }
+        
+            .pinout a:hover strong, .pinout a:hover span, .pinout a:hover small {
+                color:#FFFFFF;
+            }
+
+            footer {
+                clear:both;
+                padding-top:10px;
+            }
+
+            footer p {
+                text-align: center;
+                margin:5px;
+                padding:0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <aside>
+                <nav class="pinout">
+                    <ul>
+                        {{navigation}}
+                    </ul>
+                </nav>
+            </aside>
+            <article class="content">
+                <header>
+                    <h1>Welcome to pin:out</h1>
+                    <h2>The comprehensive GPIO pinout website for the BBC micro:bit</h2>
+                </header>
+                <p>Select a pin in the menu on the left to learn more about it.</p>
+                <p>*A budget of 90mA is available to external accessories assuming a worst-case of 30mA consumed by the micro:bit</p>
+                <p>*P12 was originally intended for accessibility functions, but it's more likely these will be routed over USB</p>
+            </article>
+        </div>
+
+        <footer>
+            <p>Spotted an error, want to add your board's pinout? Head on over to our <a href="https://github.com/gadgetoid/microbit.pinout.xyz">GitHub repository</a> and submit an Issue or a Pull Request!</p>
+            <p> Tweet us at <a href="https://twitter.com/pipinout"> @PiPinout</a>. Maintained by <a href="https://twitter.com/gadgetoid">@Gadgetoid</a>.</p>
+            <p>Want to help make microbit.pinout.xyz better? <a href="https://www.patreon.com/gadgetoid">Please support us at Patreon.com</a></p>
+        </footer>
+    </body>
+</html>
