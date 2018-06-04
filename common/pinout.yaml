@@ -1,0 +1,112 @@
+---
+name: micro:bit GPIO pinout
+types:
+  Power
+  Ground
+  Analog
+  Hook
+  GPIO
+  I2C
+  SPI
+pins:
+  0:
+    id: 
+    name: Ground
+    type: Ground
+  1:
+    id:
+    name: Ground
+    type: Ground/Hook
+  2:
+    id:
+    name: Ground
+    type: Ground
+  3:
+    id: P20
+    name: I2C1 SDA
+    type: GPIO/I2C
+  4:
+    id: P19
+    name: I2C1 SCL
+    type: GPIO/I2C
+  5:
+    id:
+    name: 3V
+    type: Power
+  6:
+    id:
+    name: 3V
+    type: Power/Hook
+  7:
+    id:
+    name: 3V
+    type: Power
+  8:
+    id: P16
+    name:
+    type: GPIO
+  9:
+    id: P15
+    name: SPI1 MOSI
+    type: GPIO/SPI
+  10:
+    id: P14
+    name: SPI1 MISO
+    type: GPIO/SPI
+  11:
+    id: P13
+    name: SPI1 SCK
+    type: GPIO/SPI
+  12:
+    id: P2
+    name: Analog In 2
+    type: GPIO/Analog/Hook
+  13:
+    id: P12
+    name: Reserved
+    type: GPIO/Reserved
+  14:
+    id: P11
+    name: Button B
+    type: GPIO/Button
+  15:
+    id: P10
+    name: LED Col 3
+    type: GPIO/Analog
+  16:
+    id: P9
+    name: LED Col 7
+    type: GPIO
+  17:
+    id: P8
+    name:
+    type: GPIO
+  18:
+    id: P1
+    name: Analog In 1
+    type: GPIO/Analog/Hook
+  19:
+    id: P7
+    name: LED Col 8
+    type: GPIO/LED
+  20:
+    id: P6
+    name: LED Col 9
+    type: GPIO/LED
+  21:
+    id: P5
+    name: Button A
+    type: GPIO/Button
+  22:
+    id: P4
+    name: LED Col 2
+    type: GPIO/Analog
+  23:
+    id: P0
+    name: Analog In 0
+    type: GPIO/Analog/Hook
+  24:
+    id: P3
+    name: LED Col 1
+    type: GPIO/Analog
+
