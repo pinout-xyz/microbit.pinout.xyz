@@ -7,21 +7,16 @@ description: 17x7 pixel LED display
 pxt: https://github.com/pimoroni/pxt-scrollbit
 python: https://github.com/pimoroni/micropython-scrollbit
 buy: https://shop.pimoroni.com/products/scroll-bit
-image: 'pimoroni-scrollbit.png'
-pincount: 4
+image: 'pimoroni-scrollbit.jpg'
 pin:
-  '11':
-    name: Green
-    mode: output
-    active: high
-  '13':
-    name: Amber
-    mode: output
-    active: high
-  '15':
-    name: Red
-    mode: output
-    active: high
+  P20:
+    mode: I2C
+  P19:
+    mode: I2C
+i2c:
+  '0x74':
+    name: Matrix LED driver
+    device: IS31FL3731
 -->
 # Pimoroni scroll:bit
 
