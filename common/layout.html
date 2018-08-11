@@ -13,20 +13,19 @@
                 font-family:sans-serif;
             }
 
-            header {
-                font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+            h1, h2 {
+                font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+                margin:0;
+                padding:0;
             }
 
-            header h1 {
+            h1 {
                 font-size:30px;
-                margin:0;
-                padding:0;
             }
 
-            header h2 {
-                margin:0;
-                padding:0;
+            h2 {
                 font-size:22px;
+                color: #d33682;
             }
         
             .pinout {
@@ -198,13 +197,7 @@
                 </nav>
             </aside>
             <article class="content">
-                <header>
-                    <h1>Welcome to pin:out</h1>
-                    <h2>The comprehensive GPIO pinout website for the BBC micro:bit</h2>
-                </header>
-                <p>Select a pin in the menu on the left to learn more about it.</p>
-                <p>*A budget of 90mA is available to external accessories assuming a worst-case of 30mA consumed by the micro:bit</p>
-                <p>*P12 was originally intended for accessibility functions, but it's more likely these will be routed over USB</p>
+                {{content}}
             </article>
         </div>
 

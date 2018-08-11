@@ -1,5 +1,12 @@
+# -*- coding: utf8 -*-
+import sys  
+
+reload(sys)  
+sys.setdefaultencoding('utf8')
+
 import os
 import yaml
+import markjaml
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -12,13 +19,14 @@ pinout_path = os.path.join(BASE_DIR, FILE_PINOUT)
 pinout = yaml.load(open(pinout_path).read())
 
 html_pins = []
+pin_pages = {}
 
 def render_html(template, **kwargs):
     for key in kwargs:
         value = kwargs.get(key)
         if type(value) == dict:
             template = render_html(template, **value)
-        elif type(value) in [str]:
+        elif type(value) in [str, unicode]:
             template = template.replace('{{' + key + '}}', value)
 
     return template
@@ -62,18 +70,47 @@ for pin_index in pinout['pins']:
 
     css_class = " ".join(css_class)
 
+    pin_slug = markjaml.slugify(pin_name or pin_info)
+
+    pin_slug = 'power' if pin_slug == '3v' else pin_slug
+    pin_slug = 'ground' if pin_slug == '0v' else pin_slug
+
+    pin_url = "pin-{pin_id}-{pin_slug}.html".format(
+        pin_id=pin_id.lower(),
+        pin_slug=pin_slug
+    )
+
     html_pins += ["<li id=\"pin-{index}\" class=\"{css_class}\"><a href=\"{url}\"><span>{name}</span>{desc}{info}</a></li>".format(
         index=pin_index,
         id=pin_id,
-        url="",
+        url=pin_url,
         name=text_name,
         desc=text_desc,
         info=text_info,
         css_class=css_class
     )]
 
+    if pin_id.lower() not in pin_pages.keys():
+        pin_pages[pin_id.lower()] = pin_url
+
+navigation = "\n".join(html_pins)
+
+index_content = markjaml.load(os.path.join(BASE_DIR, 'common', 'index.md'))
+
 html = render_html(master_template,
-    navigation = "\n".join(html_pins)
+    navigation = navigation,
+    content = index_content['html']
 )
 
-print(html)
+with open(os.path.join(BASE_DIR, 'build', 'index.html'), 'w') as output:
+    output.write(html)
+
+for pin_page_id in pin_pages:
+    pin_page_url = pin_pages[pin_page_id]
+    pin_page_content = markjaml.load(os.path.join(BASE_DIR, 'pin', '{}.md'.format(pin_page_id)))
+    html = render_html(master_template,
+        navigation = navigation,
+        content = pin_page_content['html']
+    )
+    with open(os.path.join(BASE_DIR, 'build', pin_page_url), 'w') as output:
+        output.write(html)
