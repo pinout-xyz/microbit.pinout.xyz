@@ -28,8 +28,6 @@ i2c:
     name: Temp/Pressure/Humidity Sensor
     device: BME280
 -->
-# Pimoroni enviro:bit
-
 The Pimoroni enviro:bit combines a BME680, capable of reading the Temperature, Pressure and Humidity with a MEMS Microphone for sound level and clap sensing and a TCS3472 with onboard light source to measure ambient light level and object colour.
 
 Monitor your environment, respond to sharp sounds, detect the colour of objects and more.

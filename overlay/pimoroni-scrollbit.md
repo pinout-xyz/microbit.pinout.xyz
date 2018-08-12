@@ -18,6 +18,4 @@ i2c:
     name: Matrix LED driver
     device: IS31FL3731
 -->
-# Pimoroni scroll:bit
-
 The Pimoroni scroll:bit, 17x7 pixels of single-colour, brightness-controlled, message scrolling goodness!

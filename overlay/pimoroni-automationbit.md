@@ -34,8 +34,6 @@ pin:
     name: Analog Three
     mode: analog
 -->
-# Pimoroni enviro:bit
-
 The Pimoroni automation:bit provides 24V-tolerant digital inputs and outputs, 24V-tolerant analog channels and a relay for interfacing your low-voltage micro:bit with high-voltage electronics such as central heating controlers.
 
 * Three digital outputs (sinking) via a darlington driver array

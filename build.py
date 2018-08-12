@@ -7,110 +7,220 @@ sys.setdefaultencoding('utf8')
 import os
 import yaml
 import markjaml
+import glob
+import re
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
-FILE_PINOUT = 'common/pinout.yaml'
+def src_file(dir, file):
+    return os.path.join(BASE_DIR, dir, file)
 
-master_template = open(os.path.join(BASE_DIR,'common/layout.html')).read()
+def save_file(dir, file, content):
+    path = src_file(dir, file)
+    print("Saving: {}".format(path))
+    with open(path, 'w') as output:
+        output.write(content)
 
-pinout_path = os.path.join(BASE_DIR, FILE_PINOUT)
+pinout = yaml.load(open(src_file('common', 'pinout.yaml')).read())
 
-pinout = yaml.load(open(pinout_path).read())
+overlays = glob.glob(src_file('overlay/', '*.md'))
 
-html_pins = []
 pin_pages = {}
 
-def render_html(template, **kwargs):
+def render_template(_template, **kwargs):
+    _html = open(src_file('common', '{}.html'.format(_template))).read()
+    return render_html(_html, '', **kwargs)
+
+
+def render_html(_html, _parent='', **kwargs):
     for key in kwargs:
         value = kwargs.get(key)
         if type(value) == dict:
-            template = render_html(template, **value)
+            if _parent != '':
+                _html = _html.replace('{{count(' + _parent + ':' + key + ')}}', str(len(value)))
+                _html = render_html(_html, _parent + ':' + key, **value)
+            else:
+                _html = _html.replace('{{count(' + key + ')}}', str(len(value)))
+                _html = render_html(_html, key, **value)
         elif type(value) in [str, unicode]:
-            template = template.replace('{{' + key + '}}', value)
+            if _parent != '':
+                _html = _html.replace('{{' + _parent + ':' + key + '}}', value)
+            else:
+                _html = _html.replace('{{' + key + '}}', value)
 
-    return template
+    return _html
 
-for pin_index in pinout['pins']:
 
-    css_class = []
+def get_pin_index_from_id(pin_id):
+    for pin_index in pinout['pins']:
+        if pinout['pins'][pin_index]['id'].lower() == pin_id.lower():
+            return pin_index
+    return None
 
-    pin_data = pinout['pins'][pin_index]
-    pin_id = pin_data.get('id', None)
-    pin_name = pin_data.get('name', None)
-    pin_type = pin_data.get('type', None)
-    pin_info = pin_data.get('info', None)
-    if pin_type is not None:
-        pin_type = pin_type.split("/")
+# Generate left-hand navigation
 
-    text_name = ''
+def build_navigation(overlay=None):
+    html_pins = []
+    for pin_index in pinout['pins']:
 
-    if 'Power' in pin_type:
-        text_name = 'Power'
-    elif 'Ground' in pin_type:
-        text_name = 'Ground'
-    else:
-        text_name = pin_id
+        css_class = []
 
-    text_desc = ''
-    text_info = ''
+        pin_data = pinout['pins'][pin_index]
+        pin_id = pin_data.get('id', None)
+        pin_name = pin_data.get('name', None)
+        pin_type = pin_data.get('type', None)
+        pin_info = pin_data.get('info', None)
+        if pin_type is not None:
+            pin_type = pin_type.split("/")
 
-    if pin_info is not None:
-        text_info = "<small>{}</small>".format(pin_info)
+        text_name = ''
 
-    if pin_name != text_name and pin_name is not None:
-        text_desc = pin_name
+        if 'Power' in pin_type:
+            text_name = 'Power'
+        elif 'Ground' in pin_type:
+            text_name = 'Ground'
+        else:
+            text_name = pin_id
 
-    if text_desc != '':
-        text_desc = "<strong>{}</strong>".format(text_desc)
+        text_desc = ''
+        text_info = ''
 
-    for t in pinout.get('types'):
-        if t in pin_type:
-            css_class += ["type-{}".format(t.lower())]
+        if pin_info is not None:
+            text_info = "<small>{}</small>".format(pin_info)
 
-    css_class = " ".join(css_class)
+        if pin_name != text_name and pin_name is not None:
+            text_desc = pin_name
 
-    pin_slug = markjaml.slugify(pin_name or pin_info)
+        if text_desc != '':
+            text_desc = "<strong>{}</strong>".format(text_desc)
 
-    pin_slug = 'power' if pin_slug == '3v' else pin_slug
-    pin_slug = 'ground' if pin_slug == '0v' else pin_slug
+        if overlay is not None:
+            if 'data' in overlay:
+                if 'pin' in overlay['data']:
+                    if pin_id.upper() in overlay['data']['pin']:
+                        pin_data = overlay['data']['pin'][pin_id.upper()]
+                        
+                        if 'name' in pin_data:
+                            pin_info = pin_data['name']
+                        elif 'mode' in pin_data:
+                            pin_info = pin_data['mode']
 
-    pin_url = "pin-{pin_id}-{pin_slug}.html".format(
-        pin_id=pin_id.lower(),
-        pin_slug=pin_slug
-    )
+                        text_desc = "<strong>{}</strong>".format(pin_info)
+                        css_class += ['active']
 
-    html_pins += ["<li id=\"pin-{index}\" class=\"{css_class}\"><a href=\"{url}\"><span>{name}</span>{desc}{info}</a></li>".format(
-        index=pin_index,
-        id=pin_id,
-        url=pin_url,
-        name=text_name,
-        desc=text_desc,
-        info=text_info,
-        css_class=css_class
-    )]
+        for t in pinout.get('types'):
+            if t in pin_type:
+                css_class += ["type-{}".format(t.lower())]
 
-    if pin_id.lower() not in pin_pages.keys():
-        pin_pages[pin_id.lower()] = pin_url
+        css_class = " ".join(css_class)
 
-navigation = "\n".join(html_pins)
+        pin_slug = markjaml.slugify(pin_name or pin_info)
 
-index_content = markjaml.load(os.path.join(BASE_DIR, 'common', 'index.md'))
+        pin_slug = 'power' if pin_slug == '3v' else pin_slug
+        pin_slug = 'ground' if pin_slug == '0v' else pin_slug
 
-html = render_html(master_template,
-    navigation = navigation,
-    content = index_content['html']
-)
+        pin_url = "pin-{pin_id}-{pin_slug}.html".format(
+            pin_id=pin_id.lower(),
+            pin_slug=pin_slug
+        )
 
-with open(os.path.join(BASE_DIR, 'build', 'index.html'), 'w') as output:
-    output.write(html)
+        html_pins += ["<li id=\"pin-{index}\" class=\"{css_class}\"><a href=\"{url}\"><span>{name}</span>{desc}{info}</a></li>".format(
+            index=pin_index,
+            id=pin_id,
+            url=pin_url,
+            name=text_name,
+            desc=text_desc,
+            info=text_info,
+            css_class=css_class
+        )]
+
+        if pin_id.lower() not in pin_pages.keys():
+            pin_pages[pin_id.lower()] = pin_url
+
+    return "\n".join(html_pins)
+
+navigation = build_navigation()
+
+# Generate various pin pages
 
 for pin_page_id in pin_pages:
     pin_page_url = pin_pages[pin_page_id]
-    pin_page_content = markjaml.load(os.path.join(BASE_DIR, 'pin', '{}.md'.format(pin_page_id)))
-    html = render_html(master_template,
-        navigation = navigation,
+    pin_page_content = markjaml.load(src_file('pin', '{}.md'.format(pin_page_id)))
+
+    pin_navigation = navigation
+
+    if pin_page_id == '3v':
+        pin_navigation = pin_navigation.replace(
+            'type-power',
+            'active type-power'
+        )
+    elif pin_page_id == '0v':
+        pin_navigation = pin_navigation.replace(
+            'type-ground',
+            'active type-ground'
+        )
+    else:
+        index = get_pin_index_from_id(pin_page_id)
+        pin_navigation = pin_navigation.replace(
+            '"pin-{}" class="'.format(index),
+            '"pin-{}" class="active '.format(index)
+        )
+
+    html = render_template(
+        'layout',
+        navigation = pin_navigation,
         content = pin_page_content['html']
     )
-    with open(os.path.join(BASE_DIR, 'build', pin_page_url), 'w') as output:
-        output.write(html)
+
+    save_file('build', pin_page_url, html)
+
+# Generate overlay/add-on pages
+
+overlay_info = {}
+
+for overlay in overlays:
+    overlay_content = markjaml.load(overlay)
+
+    content = render_template(
+        'overlay.part',
+        **overlay_content
+    )
+
+    overlay_navigation = build_navigation(overlay_content)
+
+    html = render_template(
+        'layout',
+        navigation = overlay_navigation,
+        content = content
+    )
+
+    filename = os.path.basename(overlay_content['data']['src'])
+    filename = filename.replace('.md', '')
+    filename = markjaml.slugify(filename)
+    filename = filename + '.html'
+
+    save_file('build', filename, html)
+
+    overlay_info[filename] = overlay_content['data']['manufacturer'] + ' ' + overlay_content['data']['name']
+
+# Generate index.html
+
+index_content = markjaml.load(src_file('common', 'index.md'))
+
+addons = ''
+
+for overlay_file in overlay_info:
+    overlay_name = overlay_info[overlay_file]
+    addons += '<li><a href="{}">{}</a></li>'.format(overlay_file, overlay_name)
+
+html = render_template(
+    'layout',
+    navigation = navigation,
+    content = render_template(
+        'index.part',
+        content = index_content['html'],
+        addons = addons
+    )
+)
+
+save_file('build', 'index.html', html)

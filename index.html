@@ -3,9 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>micro:bit GPIO pinout</title>
+        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
 
         <style type="text/css">
 
@@ -13,35 +16,20 @@
                 font-family:sans-serif;
             }
 
-            div.column {
-                width:50%;
-                float:left;
+            header {
+                font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
             }
 
-            div.column img {
-                width:100%;
-                height:auto;
-            }
-
-            div.row {
-                margin-top:20px;
-                margin-bottom:20px;
-                display: table-cell;
-            }
-
-            h1, h2 {
-                font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            header h1 {
+                font-size:30px;
                 margin:0;
                 padding:0;
             }
 
-            h1 {
-                font-size:30px;
-            }
-
-            h2 {
+            header h2 {
+                margin:0;
+                padding:0;
                 font-size:22px;
-                color: #d33682;
             }
         
             .pinout {
@@ -180,20 +168,12 @@
                 height: 30px;
                 border-radius: 15px;
             }
-
-            .pinout .active a {
-                background:rgba(212, 175, 55, 0.5);
-            }
-
-            .pinout .active a:before {
-                background:#e9d79b;
-            }
         
             .pinout a:hover,
             .pinout a:hover:before {
                 background:#278da7;
             }
-            
+        
             .pinout a:hover strong, .pinout a:hover span, .pinout a:hover small {
                 color:#FFFFFF;
             }
@@ -212,16 +192,50 @@
         </style>
     </head>
     <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an </span><strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
         <div class="main">
             <aside>
                 <nav class="pinout">
                     <ul>
-                        {{navigation}}
+                        <li id="pin-0" class="type-ground"><a href=""><span>Ground</span></a></li>
+<li id="pin-1" class="type-ground type-hook"><a href=""><span>Ground</span></a></li>
+<li id="pin-2" class="type-ground"><a href=""><span>Ground</span></a></li>
+<li id="pin-3" class="type-gpio type-i2c"><a href=""><span>P20</span><strong>I2C1 SDA</strong></a></li>
+<li id="pin-4" class="type-gpio type-i2c"><a href=""><span>P19</span><strong>I2C1 SCL</strong></a></li>
+<li id="pin-5" class="type-power"><a href=""><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
+<li id="pin-6" class="type-power type-hook"><a href=""><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
+<li id="pin-7" class="type-power"><a href=""><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
+<li id="pin-8" class="type-gpio"><a href=""><span>P16</span></a></li>
+<li id="pin-9" class="type-gpio type-spi"><a href=""><span>P15</span><strong>SPI1 MOSI</strong></a></li>
+<li id="pin-10" class="type-gpio type-spi"><a href=""><span>P14</span><strong>SPI1 MISO</strong></a></li>
+<li id="pin-11" class="type-gpio type-spi"><a href=""><span>P13</span><strong>SPI1 SCK</strong></a></li>
+<li id="pin-12" class="type-analog type-hook type-gpio"><a href=""><span>P2</span><strong>Analog In 2</strong></a></li>
+<li id="pin-13" class="type-gpio"><a href=""><span>P12</span><small>Accessibility*</small></a></li>
+<li id="pin-14" class="type-gpio type-button"><a href=""><span>P11</span><strong>Button B</strong></a></li>
+<li id="pin-15" class="type-analog type-gpio"><a href=""><span>P10</span><small>LED Col 3</small></a></li>
+<li id="pin-16" class="type-gpio"><a href=""><span>P9</span><small>LED Col 7</small></a></li>
+<li id="pin-17" class="type-gpio"><a href=""><span>P8</span></a></li>
+<li id="pin-18" class="type-analog type-hook type-gpio"><a href=""><span>P1</span><strong>Analog In 1</strong></a></li>
+<li id="pin-19" class="type-gpio"><a href=""><span>P7</span><small>LED Col 8</small></a></li>
+<li id="pin-20" class="type-gpio"><a href=""><span>P6</span><small>LED Col 9</small></a></li>
+<li id="pin-21" class="type-gpio type-button"><a href=""><span>P5</span><strong>Button A</strong></a></li>
+<li id="pin-22" class="type-analog type-gpio"><a href=""><span>P4</span><small>LED Col 2</small></a></li>
+<li id="pin-23" class="type-analog type-hook type-gpio"><a href=""><span>P0</span><strong>Analog In 0</strong></a></li>
+<li id="pin-24" class="type-analog type-gpio"><a href=""><span>P3</span><small>LED Col 1</small></a></li>
                     </ul>
                 </nav>
             </aside>
             <article class="content">
-                {{content}}
+                <header>
+                    <h1>Welcome to pin:out</h1>
+                    <h2>The comprehensive GPIO pinout website for the BBC micro:bit</h2>
+                </header>
+                <p>Select a pin in the menu on the left to learn more about it.</p>
+                <p>*A budget of 90mA is available to external accessories assuming a worst-case of 30mA consumed by the micro:bit</p>
+                <p>*P12 was originally intended for accessibility functions, but it's more likely these will be routed over USB</p>
             </article>
         </div>
 
@@ -230,5 +244,13 @@
             <p> Tweet us at <a href="https://twitter.com/pipinout"> @PiPinout</a>. Maintained by <a href="https://twitter.com/gadgetoid">@Gadgetoid</a>.</p>
             <p>Want to help make microbit.pinout.xyz better? <a href="https://www.patreon.com/gadgetoid">Please support us at Patreon.com</a></p>
         </footer>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
     </body>
 </html>
+

@@ -43,10 +43,10 @@ def load(file):
     # to be the first string starting with a single hash/pound ( # ) sign
     _title = re.search(re.compile(r'^#[^\#](.*)$', re.MULTILINE), markson)
 
-    if _title != None:
+    if _title is not None:
         _title = _title.group(0).replace('#', '').strip()
 
-    if _data != None:
+    if _data is not None:
         _type = _data.group(0)[4:8].upper().strip()
 
         if _type == 'JSON':
@@ -56,11 +56,15 @@ def load(file):
             _data = re.search('\n(.*)\n', _data.group(0), re.DOTALL).group(0)
             _data = yaml.load(_data)
         else:
-            data = {}
+            _data = {}
 
         _data['title'] = _title
 
-    elif _title != None:
+    elif _title is not None:
         _data = {'title':_title}
+    else:
+        _data = {}
+
+    _data['src'] = file
 
     return {'data':_data, 'html':_html}
