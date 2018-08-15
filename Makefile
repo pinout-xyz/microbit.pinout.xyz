@@ -1,4 +1,4 @@
-.PHONY: check-venv check-not-venv usage
+.PHONY: check-venv check-not-venv usage resources
 
 usage:
 	@echo "usage:  make <target>"
@@ -8,8 +8,12 @@ usage:
 html: build check-venv
 	python build.py
 
+resources: build
+	cp -r resources/* build/resources/
+
 build:
 	mkdir build
+	mkdir build/resources
 
 venv: check-not-venv requirements.txt
 	python -m virtualenv venv

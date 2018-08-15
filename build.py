@@ -177,6 +177,7 @@ for pin_page_id in pin_pages:
 # Generate overlay/add-on pages
 
 overlay_info = {}
+addons = ''
 
 for overlay in overlays:
     overlay_content = markjaml.load(overlay)
@@ -201,17 +202,16 @@ for overlay in overlays:
 
     save_file('build', filename, html)
 
-    overlay_info[filename] = overlay_content['data']['manufacturer'] + ' ' + overlay_content['data']['name']
+    overlay_name = overlay_content['data']['manufacturer'] + ' ' + overlay_content['data']['name']
+
+    addons += '<li><a href="{filename}">{name} <small>({desc})</small></a></li>'.format(
+        filename=filename,
+        name=overlay_name,
+        desc=overlay_content['data']['description'])
 
 # Generate index.html
 
 index_content = markjaml.load(src_file('common', 'index.md'))
-
-addons = ''
-
-for overlay_file in overlay_info:
-    overlay_name = overlay_info[overlay_file]
-    addons += '<li><a href="{}">{}</a></li>'.format(overlay_file, overlay_name)
 
 html = render_template(
     'layout',
