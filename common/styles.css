@@ -1,0 +1,312 @@
+.Homepage_gradientBackground__QHbh2 {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    height: 406px;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(288deg,#3eb6fc,#01c804);
+}
+
+.CmtWrapper_root__2HkyY {
+    flex-grow: 1;
+    padding: 0 15px 15px;
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+body {
+    font-family: 'Poppins';
+}
+
+.pinout {
+    background: #073642;
+    width: 150px;
+    position: relative;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    float: left;
+}
+
+.Homepage_colEnhanced__2wNQS {
+    display: flex;
+    margin: 15px 0;
+    position:relative;  
+    top:20px;
+}
+
+.Card_card__3OyZP {
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 630px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.1);
+}
+
+.topcard {
+    background-color: #262626 !important;
+    border-radius: 10px;
+    min-height: 132px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.1);
+}
+
+.col-md-7 {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+}
+
+.pinout {
+    background:#262626;
+    width:150px;
+    position: relative;
+    height:694px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+    float:left;
+}
+
+body {
+    font-family: 'Poppins';
+}
+
+aside {
+    width:330px;
+    float:left;
+    
+}
+
+.pinout ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+    position:absolute;
+    left:150px;
+    top:5px;
+}
+
+.pinout li {
+    margin:2px 0;
+    padding:0;
+    list-style:none;
+}
+
+.pinout .type-hook {
+    margin:6px 0px;
+}
+
+.pinout a {
+    display:block;
+    padding-left:10px;
+    position:relative;
+    height:20px;
+    width:160px;
+    text-decoration:none;
+    color:#333333;
+}
+
+.pinout span, .pinout strong, .pinout small {
+    height:20px;
+    line-height:20px;
+    font-size:14px;
+    font-weight:normal;
+}
+
+.pinout small {
+    font-size:10px;
+    float:right;
+    margin-right:10px;
+}
+
+.pinout span {
+    position:absolute;
+    left:-70px;
+}
+
+.pinout .type-hook a {
+    height:38px;
+}
+
+.pinout .type-hook a span, .pinout .type-hook a strong {
+    line-height:38px;
+}
+
+.pinout a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+}
+
+.pinout #pin-0 a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+    border-top-right-radius: 18px;
+}
+
+.pinout #pin-24 a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+    border-bottom-right-radius: 18px;
+}
+
+.pinout .type-power a:before {
+    border-right-color: #DC322F;
+}
+
+.pinout .type-i2c a:before {
+    border-right-color: #6c71c4;
+}
+
+.pinout .type-spi a:before {
+    border-right-color: #D33682;
+}
+
+.pinout .type-button a:before {
+    border-right-color: #859900;
+}
+
+.pinout .type-analog a:before {
+    border-right-color:#B58900;
+}
+
+.pinout .type-ground a:before {
+    border-right-color: rgba(255, 255, 255, 0.5);
+}
+
+.pinout .type-hook a:before {
+    height:38px;
+    width:100px;
+    left:-110px;
+    top:0;
+    border-top-left-radius:19px;
+    border-bottom-left-radius:19px;
+}
+
+.pinout .type-hook small {
+    line-height: 38px;
+}
+
+.cardfooter {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+
+h1 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+p {
+    margin-top: 0px !important;
+}
+
+.pinout .type-hook a:after {
+    content: '';
+    background: #FFFFFF;
+    display: block;
+    position: absolute;
+    left: -106px;
+    top: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.pinout a:hover,
+.pinout a:hover:before {
+    background:#3eb6fc;
+}
+
+.pinout a:hover strong, .pinout a:hover span, .pinout a:hover small {
+    color:#FFFFFF;
+}
+
+.image-list-small {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    border-radius: 10px;
+  }
+  
+  .image-list-small li {
+    display: inline-block;
+    width: 200px;
+    border-radius: 10px;
+    margin: 0 12px 30px;
+  }
+  
+  #myInput{
+      margin-bottom: 30px;
+      margin-left: 20px;
+      height: 30px;
+      width: 345px;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 10px;
+  }
+  
+  /* Photo */
+  
+  .image-list-small li > a {
+    display: block;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 137px;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    border: 0.5px solid #d0d0d0;
+  }
+
+  
+  .image-list-small .details {
+    margin-top: 13px;
+  }
+  
+  
+  /* Title */
+  
+  .image-list-small .details h3 {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .image-list-small .details h3 a {
+    color: #303030;
+    text-decoration: none;
+  }
+  
+  .image-list-small .details .image-author {
+    display: block;
+    color: #717171;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
