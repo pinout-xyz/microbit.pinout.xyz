@@ -3,7 +3,7 @@
 name: weather:bit
 type: sensor
 manufacturer: SparkFun
-description: turn the micro:bit into a weather station
+description: Turn the micro:bit into a weather station
 pxt: https://github.com/sparkfun/pxt-weather-bit
 buy: https://shop.pimoroni.com/products/sparkfun-weather-bit
 image: 'sparkfun-weatherbit.jpg'

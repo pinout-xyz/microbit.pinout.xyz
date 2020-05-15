@@ -5,8 +5,9 @@ usage:
 	@echo "venv:   Create a Python virtual environment and install requirements"
 	@echo "html:   Build the website HTML" 
 
-html: build check-venv
+pinout: build check-venv
 	python build.py
+	cp -r resources/* build/resources/
 
 resources: build
 	cp -r resources/* build/resources/

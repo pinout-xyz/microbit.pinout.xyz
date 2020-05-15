@@ -1,242 +1,394 @@
-<!doctype html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>micro:bit GPIO pinout</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pin:out</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"> 
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/microbit-foundation/microbit-svg/master/microbit-drawing-blue.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-        <style type="text/css">
+    <style>
+    .Homepage_gradientBackground__QHbh2 {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    height: 330px;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(288deg,#3eb6fc,#01c804);
+}
 
-            body {
-                font-family:sans-serif;
-            }
+.CmtWrapper_root__2HkyY {
+    flex-grow: 1;
+    padding: 0 15px 15px;
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
 
-            div.column {
-                float:left;
-            }
+body {
+    font-family: 'Poppins';
+}
 
-            div.column:nth-child(1) {
-                width:70%;
-            }
+.pinout {
+    background: #073642;
+    width: 150px;
+    position: relative;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    float: left;
+}
 
-            div.column:nth-child(2) {
-                width:30%;
-            }
+.Homepage_colEnhanced__2wNQS {
+    display: flex;
+    margin: 15px 0;
+    position:relative;  
+    top:20px;
+}
 
-            div.column img {
-                width:100%;
-                height:auto;
-            }
+.Card_card__3OyZP {
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 630px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.1);
+}
 
-            div.row {
-                margin-top:20px;
-                margin-bottom:20px;
-                display: table-cell;
-            }
+.topcard {
+    background-color: #262626 !important;
+    border-radius: 10px;
+    min-height: 132px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.1);
+}
 
-            h1, h2 {
-                font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-                margin:0;
-                padding:0;
-            }
+.col-md-7 {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+}
 
-            h1 {
-                font-size:30px;
-            }
+.pinout {
+    background:#262626;
+    width:150px;
+    position: relative;
+    height:694px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+    float:left;
+}
 
-            h2 {
-                font-size:22px;
-                color: #d33682;
-            }
-        
-            .pinout {
-                background:#073642;
-                width:150px;
-                position: relative;
-                height:694px;
-                border-top-right-radius:30px;
-                border-bottom-right-radius:30px;
-                float:left;
-            }
+body {
+    font-family: 'Poppins';
+}
 
-            aside {
-                width:330px;
-                float:left;
-            }
+aside {
+    width:330px;
+    float:left;
+    
+}
 
-            article {
-                background:#EBE6D3;
-                margin-left:320px;
-                padding:20px;
-                min-width:700px;
-            }
+.pinout ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+    position:absolute;
+    left:150px;
+    top:5px;
+}
 
-            .pinout ul {
-                margin:0;
-                padding:0;
-                list-style:none;
-                position:absolute;
-                left:150px;
-                top:5px;
-            }
+.pinout li {
+    margin:2px 0;
+    padding:0;
+    list-style:none;
+}
 
-            .pinout li {
-                margin:2px 0;
-                padding:0;
-                list-style:none;
-            }
+.pinout .type-hook {
+    margin:6px 0px;
+}
 
-            .pinout .type-hook {
-                margin:6px 0px;
-            }
+.pinout a {
+    display:block;
+    padding-left:10px;
+    position:relative;
+    height:20px;
+    width:160px;
+    text-decoration:none;
+    color:#333333;
+}
 
-            .pinout a {
-                display:block;
-                padding-left:10px;
-                position:relative;
-                height:20px;
-                width:160px;
-                text-decoration:none;
-                color:#333333;
-            }
+.pinout span, .pinout strong, .pinout small {
+    height:20px;
+    line-height:20px;
+    font-size:14px;
+    font-weight:normal;
+}
 
-            .pinout span, .pinout strong, .pinout small {
-                height:20px;
-                line-height:20px;
-                font-size:14px;
-                font-weight:normal;
-            }
+.pinout small {
+    font-size:10px;
+    float:right;
+    margin-right:10px;
+}
 
-            .pinout small {
-                font-size:10px;
-                float:right;
-                margin-right:10px;
-            }
+.pinout span {
+    position:absolute;
+    left:-70px;
+}
 
-            .pinout span {
-                position:absolute;
-                left:-70px;
-            }
+.pinout .type-hook a {
+    height:38px;
+}
 
-            .pinout .type-hook a {
-                height:38px;
-            }
+.pinout .type-hook a span, .pinout .type-hook a strong {
+    line-height:38px;
+}
 
-            .pinout .type-hook a span, .pinout .type-hook a strong {
-                line-height:38px;
-            }
+.pinout a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+}
 
-            .pinout a:before {
-                content:'';
-                display:block;
-                width:70px;
-                height:20px;
-                position:absolute;
-                left:-80px;
-                top:0;
-                background: #D4AF37;
-                border-right:10px solid rgba(255, 255, 255, 0.5);
-            }
+.pinout #pin-0 a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+    border-top-right-radius: 18px;
+}
 
-            .pinout .type-power a:before {
-                border-right-color: #DC322F;
-            }
+#left {
+  float: left;
+  width: 65%;
+  overflow: hidden;
+}
 
-            .pinout .type-i2c a:before {
-                border-right-color: #6c71c4;
-            }
+#right {
+  overflow: hidden;
+}
 
-            .pinout .type-spi a:before {
-                border-right-color: #D33682;
-            }
 
-            .pinout .type-button a:before {
-                border-right-color: #859900;
-            }
 
-            .pinout .type-analog a:before {
-                border-right-color:#B58900;
-            }
+.pinout #pin-24 a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+    border-bottom-right-radius: 18px;
+}
 
-            .pinout .type-ground a:before {
-                border-right-color: rgba(255, 255, 255, 0.5);
-            }
+.pinout .active a {
+    background:rgba(62, 182, 252, 0.5);
+}
 
-            .pinout .type-hook a:before {
-                height:38px;
-                width:100px;
-                left:-110px;
-                top:0;
-                border-top-left-radius:19px;
-                border-bottom-left-radius:19px;
-            }
+.pinout .active a:before {
+    background:#e9d79b;
+}
 
-            .pinout .type-hook small {
-                line-height: 38px;
-            }
+.pinout .type-power a:before {
+    border-right-color: #DC322F;
+}
 
-            .pinout .type-hook a:after {
-                content: '';
-                background: #FFFFFF;
-                display: block;
-                position: absolute;
-                left: -106px;
-                top: 4px;
-                width: 30px;
-                height: 30px;
-                border-radius: 15px;
-            }
+.pinout .type-i2c a:before {
+    border-right-color: #6c71c4;
+}
 
-            .pinout .active a {
-                background:rgba(212, 175, 55, 0.5);
-            }
+.pinout .type-spi a:before {
+    border-right-color: #D33682;
+}
 
-            .pinout .active a:before {
-                background:#e9d79b;
-            }
-        
-            .pinout a:hover,
-            .pinout a:hover:before {
-                background:#278da7;
-            }
-            
-            .pinout a:hover strong, .pinout a:hover span, .pinout a:hover small {
-                color:#FFFFFF;
-            }
+.pinout .type-button a:before {
+    border-right-color: #859900;
+}
 
-            footer {
-                clear:both;
-                padding-top:10px;
-            }
+.pinout .type-analog a:before {
+    border-right-color:#B58900;
+}
 
-            footer p {
-                text-align: center;
-                margin:5px;
-                padding:0;
-            }
+.pinout .type-ground a:before {
+    border-right-color: rgba(255, 255, 255, 0.5);
+}
 
-        </style>
-    </head>
-    <body>
-        <div class="main">
-            <aside>
-                <nav class="pinout">
-                    <ul>
-                        {{navigation}}
-                    </ul>
-                </nav>
-            </aside>
-            <article class="content">
-                {{content}}
-            </article>
+.pinout .type-hook a:before {
+    height:38px;
+    width:100px;
+    left:-110px;
+    top:0;
+    border-top-left-radius:19px;
+    border-bottom-left-radius:19px;
+}
+
+.pinout .type-hook small {
+    line-height: 38px;
+}
+
+.cardfooter {
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+
+h1 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+p {
+    margin-top: 0px !important;
+}
+
+.pinout .type-hook a:after {
+    content: '';
+    background: #FFFFFF;
+    display: block;
+    position: absolute;
+    left: -106px;
+    top: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.pinout a:hover,
+.pinout a:hover:before {
+    background:#3eb6fc;
+}
+
+.pinout a:hover strong, .pinout a:hover span, .pinout a:hover small {
+    color:#FFFFFF;
+}
+
+.image-list-small {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    border-radius: 10px;
+  }
+  
+  .image-list-small li {
+    display: inline-block;
+    width: 200px;
+    border-radius: 10px;
+    margin: 0 12px 30px;
+  }
+  
+  #myInput{
+      margin-bottom: 30px;
+      margin-left: 20px;
+      height: 30px;
+      width: 345px;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 10px;
+  }
+  
+  /* Photo */
+  
+  .image-list-small li > a {
+    display: block;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 137px;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    border: 0.5px solid #d0d0d0;
+  }
+
+  
+  .image-list-small .details {
+    margin-top: 13px;
+  }
+  
+  
+  /* Title */
+  
+  .image-list-small .details h3 {
+    display: block;
+    font-size: 15px;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .image-list-small .details h3 a {
+    color: #303030;
+    text-decoration: none;
+  }
+
+  .button {
+    background-color: #01c804;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 32px;
+    text-align: center;
+    float: right;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+  
+  .image-list-small .details .manufacturer {
+    display: block;
+    color: #717171;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+    </style>
+</head>
+<body>
+
+<div class="Homepage_root__1HuiG">
+    <div class="Homepage_gradientBackground__QHbh2"></div>
+    <div id="homepage" class="CmtWrapper_root__2HkyY" style="max-width: 1180px; position: relative;">
+        <div class="row">
+            <div class="Homepage_colEnhanced__2wNQS col-xs-12 col-sm-12 col-md-12">
+                <article class="Card_card__3OyZP Card_normal__3Ke9l topcard HomepageTutorialCard_root__3tbge" style="text-align: center; padding: 20px; width: 100%; box-sizing: border-box;">
+                <h1 style="color: white; font-size: 34px;">Welcome to <span style="font-weight: 700;">pin:out</span></h1>
+                <p style="color: white;"">The comprehensive GPIO pinout website for the <a style="color: white;" href="https://microbit.org">BBC micro:bit</a></p>
+                </article>
+            </div>
         </div>
+        <div class="row">
+            <div class="Homepage_colEnhanced__2wNQS col-xs-12 col-sm-12 col-md-7">
+                <article class="Card_card__3OyZP Card_normal__3Ke9l" style="padding: 10px; width: 50%; box-sizing: border-box; margin-right: 40px;">
+                    <aside>
+                        <nav class="pinout">
+                            <ul>
+                            {{navigation}}
+                            </ul>
+                        </nav>
+                    </aside>
+                </article>
+                <article class="Card_card__3OyZP Card_normal__3Ke9l" style="padding: 20px; width: 100%; box-sizing: border-box;">  
+                        {{content}}
+                    <div class="cardfooter">Part of <a style="color: black;" href="https://pinout.xyz">pinout.xyz</a>. Not affiliated with the <a style="color: black;" href="https://microbit.org">Micro:bit Educational Foundation</a>.<br>Created by <a style="color: black;" href="https://twitter.com/gadgetoid">Phil Howard</a> & <a style="color: black;" href="https://twitter.com/all_about_code">Joshua Lowe</a>.</div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <footer>
-            <p>Spotted an error, want to add your board's pinout? Head on over to our <a href="https://github.com/gadgetoid/microbit.pinout.xyz">GitHub repository</a> and submit an Issue or a Pull Request!</p>
-            <p> Tweet us at <a href="https://twitter.com/pipinout"> @PiPinout</a>. Maintained by <a href="https://twitter.com/gadgetoid">@Gadgetoid</a>.</p>
-            <p>Want to help make microbit.pinout.xyz better? <a href="https://www.patreon.com/gadgetoid">Please support us at Patreon.com</a></p>
-        </footer>
-    </body>
+</body>
 </html>

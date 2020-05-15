@@ -146,6 +146,7 @@ navigation = build_navigation()
 for pin_page_id in pin_pages:
     pin_page_url = pin_pages[pin_page_id]
     pin_page_content = markjaml.load(src_file('pin', '{}.md'.format(pin_page_id)))
+    back_button = '<a href="index.html" class="button">Back</a>'
 
     pin_navigation = navigation
 
@@ -169,7 +170,7 @@ for pin_page_id in pin_pages:
     html = render_template(
         'layout',
         navigation = pin_navigation,
-        content = pin_page_content['html']
+        content = back_button + pin_page_content['html']
     )
 
     save_file('build', pin_page_url, html)
@@ -177,7 +178,7 @@ for pin_page_id in pin_pages:
 # Generate overlay/add-on pages
 
 overlay_info = {}
-addons = ''
+addonsmain = ''
 
 for overlay in overlays:
     overlay_content = markjaml.load(overlay)
@@ -198,16 +199,26 @@ for overlay in overlays:
     filename = os.path.basename(overlay_content['data']['src'])
     filename = filename.replace('.md', '')
     filename = markjaml.slugify(filename)
-    filename = filename + '.html'
+    filename = filename
 
     save_file('build', filename, html)
 
     overlay_name = overlay_content['data']['manufacturer'] + ' ' + overlay_content['data']['name']
 
-    addons += '<li><a href="{filename}">{name} <small>({desc})</small></a></li>'.format(
-        filename=filename,
+    addonsmain += '''
+    <li>
+        <a href="{filename}" style="background-image: url('{image}');"></a>
+        <div class="details">
+        <h3 class="name"><a href="#">{name}</a></h3>
+        <p class="manufacturer">Pimoroni</p>
+        </div>
+    </li>
+    '''.format(
+        filename=filename + ".html",
         name=overlay_name,
-        desc=overlay_content['data']['description'])
+        image="resources/" + filename + ".jpg"
+    )
+
 
 # Generate index.html
 
@@ -219,7 +230,7 @@ html = render_template(
     content = render_template(
         'index.part',
         content = index_content['html'],
-        addons = addons
+        addons = addonsmain
     )
 )
 
