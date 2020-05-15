@@ -205,17 +205,24 @@ for overlay in overlays:
 
     overlay_name = overlay_content['data']['manufacturer'] + ' ' + overlay_content['data']['name']
 
+    manufacturer_name = overlay_content['data']['manufacturer']
+
     addonsmain += '''
-    <li>
-        <a href="{filename}" style="background-image: url('{image}');"></a>
-        <div class="details">
-        <h3 class="name"><a href="#">{name}</a></h3>
-        <p class="manufacturer">Pimoroni</p>
-        </div>
-    </li>
+    <div class="card" catname="apples" style="visibility: visible; display: block;">
+        <a style="text-decoration: none; color: black !important;" href="{filename}">
+            <div style="padding:5px;cursor:pointer;">
+                <div>
+                    <img class="card-logo" src="{image}" alt="apples">
+                </div>
+                <h3 class="name">{name}</h3>
+                    <p class="category">{manufacturer}</p>
+            </div>
+        </a>
+    </div>
     '''.format(
         filename=filename + ".html",
         name=overlay_name,
+        manufacturer=manufacturer_name,
         image="resources/" + filename + ".jpg"
     )
 

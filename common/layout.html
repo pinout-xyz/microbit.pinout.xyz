@@ -286,15 +286,39 @@ p {
     border-radius: 10px;
     margin: 0 12px 30px;
   }
+
+div.card {
+    float: left;
+    width: 193px;
+    height: 261px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 16px 9px 16px;
+    border: 1px solid #ffffff;
+    border: 0.5px solid #d0d0d0;
+    border-radius: 10px;
+}
+
+.card h3{
+    display: block;
+    font-size: 15px;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
   
-  #myInput{
-      margin-bottom: 30px;
+  #box{
+      margin-bottom: 8px;
       margin-left: 20px;
       height: 30px;
       width: 345px;
       border: 1.5px solid #d0d0d0;
       border-radius: 10px;
   }
+
+
   
   /* Photo */
   
@@ -346,6 +370,33 @@ p {
     margin: 4px 2px;
     cursor: pointer;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  border: solid 1px #d0d0d0;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #262626; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a; 
+}
+
+.card-logo{
+    width: 183px;
+    border-radius: 10px;
+}
   
   .image-list-small .details .manufacturer {
     display: block;
@@ -383,12 +434,21 @@ p {
                 </article>
                 <article class="Card_card__3OyZP Card_normal__3Ke9l" style="padding: 20px; width: 100%; box-sizing: border-box;">  
                         {{content}}
-                    <div class="cardfooter">Part of <a style="color: black;" href="https://pinout.xyz">pinout.xyz</a>. Not affiliated with the <a style="color: black;" href="https://microbit.org">Micro:bit Educational Foundation</a>.<br>Created by <a style="color: black;" href="https://twitter.com/gadgetoid">Phil Howard</a> & <a style="color: black;" href="https://twitter.com/all_about_code">Joshua Lowe</a>.</div>
+                        <div class="cardfooter">Part of <a style="color: black;" href="https://pinout.xyz">pinout.xyz</a>. Not affiliated with the <a style="color: black;" href="https://microbit.org">Micro:bit Educational Foundation</a>.<br>Created by <a style="color: black;" href="https://twitter.com/gadgetoid">Phil Howard</a> & <a style="color: black;" href="https://twitter.com/all_about_code">Joshua Lowe</a>.</div>
                 </article>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+$("#box").on('keyup', function(){
+  var matcher = new RegExp($(this).val(), 'gi');
+  $('.card').show().not(function(){
+      return matcher.test($(this).find('.name, .category').text())
+  }).hide();
+});
+</script>
 
 </body>
 </html>
