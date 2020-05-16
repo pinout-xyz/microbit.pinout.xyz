@@ -199,9 +199,13 @@ for overlay in overlays:
     filename = os.path.basename(overlay_content['data']['src'])
     filename = filename.replace('.md', '')
     filename = markjaml.slugify(filename)
-    filename = filename
+    filename = filename + ".html"
 
     save_file('build', filename, html)
+
+    product_name = os.path.basename(overlay_content['data']['src'])
+    product_name = product_name.replace('.md', '')
+    product_name = markjaml.slugify(product_name)
 
     overlay_name = overlay_content['data']['manufacturer'] + ' ' + overlay_content['data']['name']
 
@@ -218,9 +222,9 @@ for overlay in overlays:
         </a>
     </div>
     '''.format(
-        filename=filename + ".html",
+        filename=filename,
         name=overlay_name,
-        image="resources/" + filename + ".jpg"
+        image="resources/" + product_name + ".jpg"
     )
 
 
