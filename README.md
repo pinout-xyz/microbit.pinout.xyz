@@ -30,12 +30,20 @@ Based on what we learned with Pinout.xyz, I'll be handling translations as forks
 
 microbit.pinout.xyz includes a Makefile to help you set up a build environment and generate the .html files. For most build processes you should prepare the Python virtual environment with:
 
+### Install required libraries
+
+```
+pip install virtualenv pyyaml markdown
+```
+
+### Create and enter virtual environment
+
 ```
 make venv
 source venv/bin/activate
 ```
 
-Then you can build the HTML files with:
+### Build the HTML files 
 
 ```
 make pinout
