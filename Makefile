@@ -3,7 +3,7 @@
 usage:
 	@echo "usage:  make <target>"
 	@echo "venv:   Create a Python virtual environment and install requirements"
-	@echo "html:   Build the website HTML" 
+	@echo "pinout: Build the website HTML" 
 
 pinout: build check-venv
 	python build.py
