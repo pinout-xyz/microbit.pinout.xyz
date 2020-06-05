@@ -211,11 +211,11 @@ for overlay in overlays:
 
 
     addonsmain += '''
-    <div class="card" catname="apples" style="visibility: visible; display: block;">
+    <div class="card" catname="{name}" style="visibility: visible; display: block;">
         <a style="text-decoration: none; color: black !important;" href="{filename}">
             <div style="padding:5px;cursor:pointer;">
                 <div>
-                    <img class="card-logo" src="{image}" alt="apples">
+                    <img class="card-logo" src="{image}" alt="{name}">
                 </div>
                 <h3 class="name">{name}</h3>
             </div>
