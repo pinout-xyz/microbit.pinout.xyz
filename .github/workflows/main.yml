@@ -17,6 +17,9 @@ jobs:
       - name: Copy Resources
         run: cp -r resources/* build/resources
 
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
       - name: Build Static HTML
         run: python build.py
 
