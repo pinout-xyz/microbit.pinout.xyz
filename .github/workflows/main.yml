@@ -1,0 +1,24 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+        - name: Make Directories
+          run: mkdir -p build/resources
+
+        - name: Copy Resources
+          run: cp -r resources/* build/resources
+
+        - name: Build Static HTML
+          run: python build.py
+
+        - name: Deploy
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./build
