@@ -38,7 +38,7 @@ source venv/bin/activate
 Then you can build the HTML files with:
 
 ```
-make html
+make pinout
 ```
 
 # Support this project
