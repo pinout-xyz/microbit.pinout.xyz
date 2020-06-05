@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pin:out</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"> 
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/microbit-foundation/microbit-svg/master/microbit-drawing-blue.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+    .Homepage_gradientBackground__QHbh2 {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    height: 330px;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(288deg,#3eb6fc,#01c804);
+}
+
+.CmtWrapper_root__2HkyY {
+    flex-grow: 1;
+    padding: 0 15px 15px;
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+body {
+    font-family: 'Poppins';
+}
+
+.pinout {
+    background: #073642;
+    width: 150px;
+    position: relative;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    float: left;
+}
+
+.Homepage_colEnhanced__2wNQS {
+    display: flex;
+    margin: 15px 0;
+    position:relative;  
+    top: 6px;
+}
+
+.Card_card__3OyZP {
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 630px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.1);
+}
+
+.topcard {
+    background-color: #262626 !important;
+    border-radius: 10px;
+    min-height: 132px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.1);
+}
+
+.col-md-7 {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+}
+
+.pinout {
+    background-image: url(https://i.ibb.co/VvQmZNm/microbit-background.png);
+    width:180px;
+    background-size: cover;
+    background-position: -32px;
+    background-repeat: no-repeat;
+    position: relative;
+    height:694px;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+    float:left;
+}
+
+body {
+    font-family: 'Poppins';
+}
+
+aside {
+    width:330px;
+    float:left;
+    
+}
+
+.pinout ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+    position:absolute;
+    left:180px;
+    top:5px;
+}
+
+.pinout li {
+    margin:2px 0;
+    padding:0;
+    list-style:none;
+}
+
+.pinout .type-hook {
+    margin:6px 0px;
+}
+
+.pinout a {
+    display:block;
+    padding-left:10px;
+    position:relative;
+    height:20px;
+    width:160px;
+    text-decoration:none;
+    color:#333333;
+}
+
+.pinout span, .pinout strong, .pinout small {
+    height:20px;
+    line-height:20px;
+    font-size:14px;
+    font-weight:normal;
+}
+
+.pinout small {
+    font-size:10px;
+    float:right;
+    margin-right:10px;
+}
+
+.pinout span {
+    position:absolute;
+    left:-70px;
+}
+
+.pinout .type-hook a {
+    height:38px;
+}
+
+.pinout .type-hook a span, .pinout .type-hook a strong {
+    line-height:38px;
+}
+
+.pinout a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+}
+
+.pinout #pin-0 a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+    border-top-right-radius: 18px;
+}
+
+#left {
+  float: left;
+  width: 65%;
+  overflow: hidden;
+}
+
+#right {
+  overflow: hidden;
+}
+
+
+
+.pinout #pin-24 a:before {
+    content:'';
+    display:block;
+    width:70px;
+    height:20px;
+    position:absolute;
+    left:-80px;
+    top:0;
+    background: #D4AF37;
+    border-right:10px solid rgba(255, 255, 255, 0.5);
+    border-bottom-right-radius: 18px;
+}
+
+.pinout .active a {
+    background:rgba(62, 182, 252, 0.5);
+}
+
+.pinout .active a:before {
+    background:#e9d79b;
+}
+
+.pinout .type-power a:before {
+    border-right-color: #DC322F;
+}
+
+.pinout .type-i2c a:before {
+    border-right-color: #6c71c4;
+}
+
+.pinout .type-spi a:before {
+    border-right-color: #D33682;
+}
+
+.pinout .type-button a:before {
+    border-right-color: #859900;
+}
+
+.pinout .type-analog a:before {
+    border-right-color:#B58900;
+}
+
+.pinout .type-ground a:before {
+    border-right-color: rgba(255, 255, 255, 0.5);
+}
+
+.pinout .type-hook a:before {
+    height:38px;
+    width:100px;
+    left:-110px;
+    top:0;
+    border-top-left-radius:19px;
+    border-bottom-left-radius:19px;
+}
+
+.pinout .type-hook small {
+    line-height: 38px;
+}
+
+.cardfooter {
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 0;
+}
+
+h1 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+p {
+    margin-top: 0px !important;
+}
+
+.pinout .type-hook a:after {
+    content: '';
+    background: #FFFFFF;
+    display: block;
+    position: absolute;
+    left: -106px;
+    top: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.pinout a:hover,
+.pinout a:hover:before {
+    background:#3eb6fc;
+}
+
+.pinout a:hover strong, .pinout a:hover span, .pinout a:hover small {
+    color:#FFFFFF;
+}
+
+div.card {
+    float: left;
+    width: 193px;
+    height: 230px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 16px 9px 16px;
+    border: 1px solid #ffffff;
+    border: 0.5px solid #d0d0d0;
+    border-radius: 10px;
+}
+
+.card h3{
+    display: block;
+    font-size: 15px;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+  
+  #box{
+      margin-bottom: 33px;
+      margin-left: 20px;
+      height: 30px;
+      width: 345px;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 10px;
+  }
+
+  .button {
+    background-color: #01c804;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 32px;
+    text-align: center;
+    float: right;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0px 2px;
+    cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  border: solid 1px #d0d0d0;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #262626; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a; 
+}
+
+.card-logo{
+    width: 183px;
+    border-radius: 10px;
+}
+  
+  .image-list-small .details .manufacturer {
+    display: block;
+    color: #717171;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+    </style>
+</head>
+<body>
+
+<div class="Homepage_root__1HuiG">
+    <div class="Homepage_gradientBackground__QHbh2"></div>
+    <div id="homepage" class="CmtWrapper_root__2HkyY" style="max-width: 1180px; position: relative;">
+        <div class="row">
+            <div class="Homepage_colEnhanced__2wNQS col-xs-12 col-sm-12 col-md-12">
+                <article class="Card_card__3OyZP Card_normal__3Ke9l topcard HomepageTutorialCard_root__3tbge" style="text-align: center; padding: 20px; width: 100%; box-sizing: border-box;">
+                <h1 style="color: white; font-size: 34px;">Welcome to <span style="font-weight: 700;">pin:out</span></h1>
+                <p style="color: white;"">The comprehensive GPIO pinout website for the <a style="color: white;" href="https://microbit.org">BBC micro:bit</a></p>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="Homepage_colEnhanced__2wNQS col-xs-12 col-sm-12 col-md-7">
+                <article class="Card_card__3OyZP Card_normal__3Ke9l" style="padding: 10px; width: 50%; box-sizing: border-box; margin-right: 40px;">
+                    <aside>
+                        <nav class="pinout">
+                            <ul>
+                            <li id="pin-0" class="type-ground"><a href="pin-0v-ground.html"><span>Ground</span></a></li>
+<li id="pin-1" class="type-hook type-ground"><a href="pin-0v-ground.html"><span>Ground</span></a></li>
+<li id="pin-2" class="type-ground"><a href="pin-0v-ground.html"><span>Ground</span></a></li>
+<li id="pin-3" class="type-gpio type-i2c"><a href="pin-p20-i2c1-sda.html"><span>P20</span><strong>I2C1 SDA</strong></a></li>
+<li id="pin-4" class="type-gpio type-i2c"><a href="pin-p19-i2c1-scl.html"><span>P19</span><strong>I2C1 SCL</strong></a></li>
+<li id="pin-5" class="type-power"><a href="pin-3v-power.html"><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
+<li id="pin-6" class="type-power type-hook"><a href="pin-3v-power.html"><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
+<li id="pin-7" class="type-power"><a href="pin-3v-power.html"><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
+<li id="pin-8" class="active type-gpio"><a href="pin-p16-digital-gpio.html"><span>P16</span><strong>BUTTON Y</strong></a></li>
+<li id="pin-9" class="type-spi type-gpio"><a href="pin-p15-spi1-mosi.html"><span>P15</span><strong>SPI1 MOSI</strong></a></li>
+<li id="pin-10" class="type-spi type-gpio"><a href="pin-p14-spi1-miso.html"><span>P14</span><strong>SPI1 MISO</strong></a></li>
+<li id="pin-11" class="type-spi type-gpio"><a href="pin-p13-spi1-sck.html"><span>P13</span><strong>SPI1 SCK</strong></a></li>
+<li id="pin-12" class="active type-hook type-gpio type-analog"><a href="pin-p2-analog-in-2.html"><span>P2</span><strong>LEFT</strong></a></li>
+<li id="pin-13" class="active type-gpio"><a href="pin-p12-button-x.html"><span>P12</span><strong>BUTTON X</strong><small>Accessibility*</small></a></li>
+<li id="pin-14" class="type-button type-gpio"><a href="pin-p11-button-b.html"><span>P11</span><strong>Button B</strong></a></li>
+<li id="pin-15" class="type-gpio type-analog"><a href="pin-p10-led-col-3.html"><span>P10</span><small>LED Col 3</small></a></li>
+<li id="pin-16" class="type-gpio"><a href="pin-p9-led-col-7.html"><span>P9</span><small>LED Col 7</small></a></li>
+<li id="pin-17" class="active type-gpio"><a href="pin-p8-digital-gpio.html"><span>P8</span><strong>DOWN</strong></a></li>
+<li id="pin-18" class="active type-hook type-gpio type-analog"><a href="pin-p1-analog-in-1.html"><span>P1</span><strong>RIGHT</strong></a></li>
+<li id="pin-19" class="type-gpio"><a href="pin-p7-led-col-8.html"><span>P7</span><small>LED Col 8</small></a></li>
+<li id="pin-20" class="type-gpio"><a href="pin-p6-led-col-9.html"><span>P6</span><small>LED Col 9</small></a></li>
+<li id="pin-21" class="type-button type-gpio"><a href="pin-p5-button-a.html"><span>P5</span><strong>Button A</strong></a></li>
+<li id="pin-22" class="type-gpio type-analog"><a href="pin-p4-led-col-2.html"><span>P4</span><small>LED Col 2</small></a></li>
+<li id="pin-23" class="active type-hook type-gpio type-analog"><a href="pin-p0-analog-in-0.html"><span>P0</span><strong>UP</strong></a></li>
+<li id="pin-24" class="type-gpio type-analog"><a href="pin-p3-led-col-1.html"><span>P3</span><small>LED Col 1</small></a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </article>
+                <article class="Card_card__3OyZP Card_normal__3Ke9l" style="padding: 20px; width: 100%; box-sizing: border-box;">  
+                        <a href="index.html" class="button">Back</a>
+<h1>SparkFun gamer:bit</h1>
+<h2>turn the micro:bit into a fully functional game system</h2>
+
+<p>The SparkFun gamer:bit is a fun-filled “carrier” board for the micro:bit that, when combined with the micro:bit, provides you with a fully functional game system. Designed in a similar form factor to the classic Nintendo NES controller, the gamer:bit is equipped with a four-direction “D-pad” on the left side of the board and two action buttons on the right side of the board. The two push buttons on the micro:bit in the center function as start and select.</p>
+
+<div id="wrapper">
+    <div id="left">
+        <h3>Details:</h3>
+        <ul>
+            <li>Pins used: 6</li>
+            <a href="https://github.com/sparkfun/pxt-gamer-bit"><li>MakeCode library</a></li>
+            <a href="{{data:python}}"><li>MicroPython library</a></li>
+            <li class="buy"><a href="https://shop.pimoroni.com/products/sparkfun-gamer-bit">Buy Now</a></li>
+        </ul>
+    </div>
+    <div id="right">
+        <img style="width: 100%; border-radius: 10px;" src="resources/sparkfun-gamerbit.jpg" />
+    </div>
+</div>
+                        <div class="cardfooter">Part of <a style="color: black;" href="https://pinout.xyz">pinout.xyz</a>. Not affiliated with the <a style="color: black;" href="https://microbit.org">Micro:bit Educational Foundation</a>.<br>Created by <a style="color: black;" href="https://twitter.com/gadgetoid">Phil Howard</a> & <a style="color: black;" href="https://twitter.com/all_about_code">Joshua Lowe</a>.</div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$("#box").on('keyup', function(){
+  var matcher = new RegExp($(this).val(), 'gi');
+  $('.card').show().not(function(){
+      return matcher.test($(this).find('.name, .category').text())
+  }).hide();
+});
+</script>
+
+</body>
+</html>
