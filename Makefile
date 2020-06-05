@@ -7,7 +7,7 @@ usage:
 
 pinout: build check-venv
 	python build.py
-	cp -r resources build/resources/
+	cp -r resources build
 
 
 resources: build
