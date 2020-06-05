@@ -387,32 +387,57 @@ div.card {
 <li id="pin-5" class="type-power"><a href="pin-3v-power.html"><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
 <li id="pin-6" class="type-power type-hook"><a href="pin-3v-power.html"><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
 <li id="pin-7" class="type-power"><a href="pin-3v-power.html"><span>Power</span><strong>3V</strong><small>Max 90mA*</small></a></li>
-<li id="pin-8" class="type-gpio"><a href="pin-p16-digital-gpio.html"><span>P16</span><strong>Digital GPIO</strong></a></li>
-<li id="pin-9" class="type-spi type-gpio"><a href="pin-p15-spi1-mosi.html"><span>P15</span><strong>SPI1 MOSI</strong></a></li>
-<li id="pin-10" class="type-spi type-gpio"><a href="pin-p14-spi1-miso.html"><span>P14</span><strong>SPI1 MISO</strong></a></li>
-<li id="pin-11" class="type-spi type-gpio"><a href="pin-p13-spi1-sck.html"><span>P13</span><strong>SPI1 SCK</strong></a></li>
-<li id="pin-12" class="type-hook type-gpio type-analog"><a href="pin-p2-analog-in-2.html"><span>P2</span><strong>Analog In 2</strong></a></li>
-<li id="pin-13" class="type-gpio"><a href="pin-p12-accessibility-.html"><span>P12</span><small>Accessibility*</small></a></li>
+<li id="pin-8" class="active type-gpio"><a href="pin-p16-digital-gpio.html"><span>P16</span><strong>Yellow Button</strong></a></li>
+<li id="pin-9" class="active type-spi type-gpio"><a href="pin-p15-spi1-mosi.html"><span>P15</span><strong>Blue Button</strong></a></li>
+<li id="pin-10" class="active type-spi type-gpio"><a href="pin-p14-spi1-miso.html"><span>P14</span><strong>Green Button</strong></a></li>
+<li id="pin-11" class="active type-spi type-gpio"><a href="pin-p13-spi1-sck.html"><span>P13</span><strong>Neopixels</strong></a></li>
+<li id="pin-12" class="active type-hook type-gpio type-analog"><a href="pin-p2-analog-in-2.html"><span>P2</span><strong>Joystick Y</strong></a></li>
+<li id="pin-13" class="active type-gpio"><a href="pin-p12-red-button.html"><span>P12</span><strong>Red Button</strong><small>Accessibility*</small></a></li>
 <li id="pin-14" class="type-button type-gpio"><a href="pin-p11-button-b.html"><span>P11</span><strong>Button B</strong></a></li>
-<li id="pin-15" class="active type-gpio type-analog"><a href="pin-p10-led-col-3.html"><span>P10</span><small>LED Col 3</small></a></li>
+<li id="pin-15" class="type-gpio type-analog"><a href="pin-p10-led-col-3.html"><span>P10</span><small>LED Col 3</small></a></li>
 <li id="pin-16" class="type-gpio"><a href="pin-p9-led-col-7.html"><span>P9</span><small>LED Col 7</small></a></li>
-<li id="pin-17" class="type-gpio"><a href="pin-p8-digital-gpio.html"><span>P8</span><strong>Digital GPIO</strong></a></li>
-<li id="pin-18" class="type-hook type-gpio type-analog"><a href="pin-p1-analog-in-1.html"><span>P1</span><strong>Analog In 1</strong></a></li>
+<li id="pin-17" class="active type-gpio"><a href="pin-p8-digital-gpio.html"><span>P8</span><strong>Joystick Button</strong></a></li>
+<li id="pin-18" class="active type-hook type-gpio type-analog"><a href="pin-p1-analog-in-1.html"><span>P1</span><strong>Joystick X</strong></a></li>
 <li id="pin-19" class="type-gpio"><a href="pin-p7-led-col-8.html"><span>P7</span><small>LED Col 8</small></a></li>
 <li id="pin-20" class="type-gpio"><a href="pin-p6-led-col-9.html"><span>P6</span><small>LED Col 9</small></a></li>
 <li id="pin-21" class="type-button type-gpio"><a href="pin-p5-button-a.html"><span>P5</span><strong>Button A</strong></a></li>
 <li id="pin-22" class="type-gpio type-analog"><a href="pin-p4-led-col-2.html"><span>P4</span><small>LED Col 2</small></a></li>
-<li id="pin-23" class="type-hook type-gpio type-analog"><a href="pin-p0-analog-in-0.html"><span>P0</span><strong>Analog In 0</strong></a></li>
+<li id="pin-23" class="active type-hook type-gpio type-analog"><a href="pin-p0-analog-in-0.html"><span>P0</span><strong>Speaker/Dial</strong></a></li>
 <li id="pin-24" class="type-gpio type-analog"><a href="pin-p3-led-col-1.html"><span>P3</span><small>LED Col 1</small></a></li>
                             </ul>
                         </nav>
                     </aside>
                 </article>
                 <article class="Card_card__3OyZP Card_normal__3Ke9l" style="padding: 20px; width: 100%; box-sizing: border-box;">  
-                        <a href="index.html" class="button">Back</a><h1>P10: LED Matrix (Column 3)</h1>
-<p>P10 is wired to Column 3 of the onboard 5x5 pixel LED matrix on the BBC micro:bit.</p>
-<p>While the LED matrix is 5x5 (25) pixels, there are 9 columns and 3 rows. Columns 8 and 9 drive only two LEDs each.</p>
-<p>While you may use this pin for other purposes, you must take into account that it is wired to LEDs and their associated resistors.</p>
+                        <a href="index.html" class="button">Back</a>
+<h1>4Tronix BitCommander</h1>
+<h2>Controller for the BBC micro:bit</h2>
+
+<p>The Bit:Commander is a remote control add-on board for the BBC micro:bit.</p>
+<p>Overview:</p>
+<ul>
+<li>Edge Connector for easy connection of the BBC micro:bit</li>
+<li>6 multi-colour FireLeds</li>
+<li>4 square 12mm push buttons with coloured caps (Red. Yellow, Green, Blue)</li>
+<li>Analog dial input with Min, Max and intermediate markings</li>
+<li>Analog Joystick with X and Y movement and a push switch</li>
+<li>Powered miniature speaker</li>
+</ul>
+
+<div id="wrapper">
+    <div id="left">
+        <h3>Details:</h3>
+        <ul>
+            <li>Pins used: 9</li>
+            <a href="https://github.com/4tronix/BitCommander"><li>MakeCode library</a></li>
+            <a href="{{data:python}}"><li>MicroPython library</a></li>
+            <li class="buy"><a href="https://shop.4tronix.co.uk/products/bitcommander">Buy Now</a></li>
+        </ul>
+    </div>
+    <div id="right">
+        <img style="width: 100%; border-radius: 10px;" src="resources/4tronix-bitcommander.jpg" />
+    </div>
+</div>
                         <div class="cardfooter">Part of <a style="color: black;" href="https://pinout.xyz">pinout.xyz</a>. Not affiliated with the <a style="color: black;" href="https://microbit.org">Micro:bit Educational Foundation</a>.<br>Created by <a style="color: black;" href="https://twitter.com/gadgetoid">Phil Howard</a> & <a style="color: black;" href="https://twitter.com/all_about_code">Joshua Lowe</a>.</div>
                 </article>
             </div>
