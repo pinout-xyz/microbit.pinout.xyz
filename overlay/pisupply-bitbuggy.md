@@ -6,7 +6,7 @@ manufacturer: Pi Supply
 description: Our IoT micro:bit LoRa Node allows you to create an inexpensive LoRa node.
 pxt: https://github.com/PiSupply/pxt-bitbuggy
 buy: https://uk.pi-supply.com/products/pi-supply-bit-buggy-car-with-microbit
-image: 'pisupply-bitbuggy.png'
+image: 'pisupply-bitbuggy.jpg'
 pin:
   P1:
     name: Left Wheel
