@@ -3,7 +3,7 @@
 name: octopus:bit
 type: breakout
 manufacturer: Pi Supply
-description: Plug your micro:bit into this breakout board and start experimenting. 
+description: Plug your micro:bit into this breakout board and start experimenting.
 pxt: https://github.com/PiSupply/pxt-tinker-kit
 buy: https://uk.pi-supply.com/products/pi-supply-micro-bit-breakout-board
 image: 'pisupply-octopusbit.jpg'
@@ -14,6 +14,7 @@ pin:
   P12:
     name: RX
     mode: UART
+
 
 -->
 The Pi Supply micro:bit Breakout Board is an add-on board designed for the popular BBC micro:bit board.
