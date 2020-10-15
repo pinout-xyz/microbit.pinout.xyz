@@ -6,7 +6,7 @@ manufacturer: Pi Supply
 description: Our IoT micro:bit LoRa Node allows you to create an inexpensive LoRa node.
 pxt: https://github.com/PiSupply/pxt-iot-lora-node/
 buy: https://uk.pi-supply.com/products/iot-micro-bit-lora-node
-image: 'pisupply-loranode.png'
+image: 'pisupply-loranode.jpg'
 pin:
   P14:
     name: TX

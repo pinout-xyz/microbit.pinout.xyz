@@ -1,9 +1,9 @@
 <!--
 ---
-name: IoT micro:bit LoRa Node
-type: radio
+name: Bit:Buggy
+type: robot
 manufacturer: Pi Supply
-description: Our IoT micro:bit LoRa Node allows you to create an inexpensive LoRa node.
+description: The Pi Supply Bit:Buggy expansion board is a simple PCB for the micro:bit.
 pxt: https://github.com/PiSupply/pxt-bitbuggy
 buy: https://uk.pi-supply.com/products/pi-supply-bit-buggy-car-with-microbit
 image: 'pisupply-bitbuggy.jpg'
